@@ -96,7 +96,7 @@ public class DataLoadService implements CommandLineRunner {
             return;
         }
         
-        try (BufferedReader reader = new BufferedReader(new FileReader("books.txt"))) {
+        try (BufferedReader reader = Files.newBufferedReader(path)) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
