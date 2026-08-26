@@ -1,0 +1,6 @@
+target
+*.sqlite
+*.db
+.idea
+.git
+*.log

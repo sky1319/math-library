@@ -1,0 +1,31 @@
+# Secrets must stay outside source control.
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+
+# Local IDE and assistant metadata
+.idea/
+.claude/
+
+# Local databases and runtime data
+*.sqlite
+*.sqlite3
+*.db
+*.h2.db
+*.mv.db
+*.data
+lib_log.txt
+backend/lib_log.txt
+frontend/qd
+
+# Local scratch/test pages
+test.html
+test-*.html
+
+# Generated files
+backend/target/
+frontend/dist/
+frontend/node_modules/
+*.log

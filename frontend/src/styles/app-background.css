@@ -1,0 +1,419 @@
+.app-scene-root {
+  min-height: 100vh;
+  position: relative;
+  color: var(--paper);
+  background:
+    linear-gradient(180deg, rgba(4, 26, 28, .24), rgba(5, 22, 23, .74)),
+    url('../assets/app-background.png') center / cover fixed no-repeat;
+}
+
+.app-scene-root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(4, 26, 28, .6), transparent 42%, rgba(4, 26, 28, .22)),
+    linear-gradient(180deg, rgba(12, 55, 63, .1), rgba(4, 18, 18, .62));
+}
+
+.glass-header {
+  min-height: 88px;
+  padding: 0 clamp(22px, 4vw, 64px) !important;
+  background: rgba(4, 28, 30, .42) !important;
+  border-bottom: 1px solid rgba(253, 241, 225, .18) !important;
+  backdrop-filter: blur(18px) saturate(1.05);
+  -webkit-backdrop-filter: blur(18px) saturate(1.05);
+}
+
+.glass-header .logo {
+  font-family: var(--font-display) !important;
+  font-size: clamp(20px, 2vw, 28px) !important;
+  font-weight: 500 !important;
+}
+
+.glass-header .el-button,
+.glass-header button {
+  color: var(--paper) !important;
+}
+
+.glass-card {
+  color: var(--paper);
+  border: 1px solid rgba(253, 241, 225, .2) !important;
+  border-radius: 6px !important;
+  background: rgba(7, 39, 41, .68) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .18) !important;
+  backdrop-filter: blur(22px) saturate(1.05);
+  -webkit-backdrop-filter: blur(22px) saturate(1.05);
+}
+
+.glass-input,
+.glass-input .el-input__wrapper,
+.glass-input .el-select__wrapper,
+.glass-input .el-textarea__inner,
+.filter-input .el-input__wrapper {
+  color: var(--paper) !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(253, 241, 225, .42) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.glass-input input,
+.glass-input textarea,
+.glass-input .el-input__inner {
+  color: var(--paper) !important;
+}
+
+.glass-input input::placeholder,
+.glass-input textarea::placeholder {
+  color: rgba(253, 241, 225, .46) !important;
+}
+
+.glass-btn,
+.action-btn,
+.table-btn {
+  min-height: 40px;
+  padding-inline: 20px !important;
+  border: 1px solid rgba(253, 241, 225, .55) !important;
+  border-radius: 999px !important;
+  color: var(--paper) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.glass-btn.primary,
+.el-button--primary.glass-btn,
+.primary-btn {
+  color: var(--ink) !important;
+  border-color: var(--paper) !important;
+  background: var(--paper) !important;
+}
+
+.content-section,
+.profile-section,
+.borrow-section,
+.wish-section,
+.book-detail,
+.recommendations,
+.chat-container,
+.suggestions,
+.history-sidebar {
+  border-radius: 6px !important;
+}
+
+.content-section h2,
+.profile-section h2,
+.borrow-section h2,
+.wish-section h2,
+.book-detail h1,
+.recommendations h2,
+.suggestions h3 {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+}
+
+.admin-table,
+.borrow-table {
+  --el-table-bg-color: transparent;
+  --el-table-tr-bg-color: transparent;
+  --el-table-header-bg-color: rgba(253, 241, 225, .08);
+  --el-table-row-hover-bg-color: rgba(253, 241, 225, .08);
+  --el-table-border-color: rgba(253, 241, 225, .15);
+  --el-table-text-color: rgba(253, 241, 225, .86);
+  --el-table-header-text-color: var(--paper);
+}
+
+.el-dialog.glass-dialog,
+.glass-dialog .el-dialog {
+  color: var(--ink) !important;
+  border-radius: 6px !important;
+  background: var(--paper) !important;
+}
+
+.el-message {
+  border-radius: 4px !important;
+}
+
+@media (max-width: 760px) {
+  .glass-header { min-height: 72px; }
+  .header-right { gap: 6px !important; }
+  .glass-card { backdrop-filter: blur(16px); }
+}
+
+/* Existing business views inherit the same editorial visual system. */
+.book-detail-container > .content,
+.profile-container > .content,
+.qa-main,
+.admin-container > .main-content {
+  width: min(1500px, 100%);
+  margin-inline: auto !important;
+}
+
+.book-detail-container .book-detail {
+  min-height: 430px;
+  padding: clamp(32px, 6vw, 84px) !important;
+}
+
+.book-detail-container .book-detail h1 {
+  max-width: 900px;
+  font-size: clamp(3.2rem, 7vw, 7rem) !important;
+  line-height: .9 !important;
+}
+
+.book-detail-container .book-meta,
+.book-detail-container .book-stats {
+  padding-block: 18px;
+  border-top: 1px solid rgba(253, 241, 225, .18);
+  border-bottom: 1px solid rgba(253, 241, 225, .18);
+}
+
+.book-detail-container .recommend-card,
+.profile-container .wish-item,
+.qa-container .analysis-item,
+.qa-container .history-item {
+  border-radius: 4px !important;
+  background: rgba(253, 241, 225, .06) !important;
+}
+
+.qa-container .chat-container {
+  min-height: 0;
+}
+
+.qa-container .content,
+.qa-container .suggestion-btn {
+  border-radius: 4px !important;
+}
+
+.qa-container .suggestion-btn {
+  border-color: rgba(253, 241, 225, .2) !important;
+  background: rgba(253, 241, 225, .06) !important;
+}
+
+.admin-container .sidebar-menu,
+.admin-container .sidebar-menu.el-menu {
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.admin-container .sidebar-menu .el-menu-item {
+  margin-bottom: 6px;
+  border-radius: 999px;
+  color: rgba(253, 241, 225, .66) !important;
+}
+
+.admin-container .sidebar-menu .el-menu-item.is-active {
+  color: var(--ink) !important;
+  background: var(--paper) !important;
+}
+
+.admin-container .content-section > h2,
+.admin-container .section-header h2 {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.5rem, 4vw, 4.5rem) !important;
+  font-weight: 500 !important;
+}
+
+@media (max-width: 760px) {
+  .book-detail-container > .content,
+  .profile-container > .content,
+  .qa-main,
+  .admin-container > .main-content {
+    padding: 16px !important;
+  }
+  .book-detail-container .book-meta,
+  .book-detail-container .book-stats {
+    flex-direction: column;
+    gap: 8px !important;
+  }
+}
+
+/* Uiverse-inspired galaxy input: a compact animated star ring instead of a glass field. */
+.galaxy-input-shell {
+  --galaxy-ink: #05071b;
+  --galaxy-blue: #4d6dff;
+  --galaxy-cyan: #6e8cff;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 58px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.galaxy-input-shell::before,
+.galaxy-input-shell::after,
+.galaxy-input-shell .galaxy-input-glow {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.galaxy-input-shell::before {
+  inset: -2px;
+  z-index: -2;
+  background: conic-gradient(from 20deg, transparent 0 18%, var(--galaxy-blue) 27%, transparent 37% 57%, var(--galaxy-cyan) 68%, transparent 78% 100%);
+  filter: blur(1px) brightness(1.28);
+  animation: galaxy-input-spin 5s linear infinite;
+  transition: filter .3s ease, opacity .3s ease;
+}
+
+.galaxy-input-shell::after {
+  inset: 1px;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(8, 13, 48, .96), var(--galaxy-ink) 72%);
+  box-shadow: inset 0 0 24px rgba(77, 109, 255, .13), 0 10px 28px rgba(0, 0, 0, .24);
+}
+
+.galaxy-input-shell .galaxy-input-glow {
+  left: 10px;
+  top: 50%;
+  width: 30px;
+  height: 20px;
+  z-index: 0;
+  transform: translateY(-50%);
+  background: var(--galaxy-blue);
+  filter: blur(18px);
+  opacity: .72;
+  transition: opacity .35s ease;
+}
+
+.galaxy-input-shell:focus-within::before {
+  filter: blur(.2px) brightness(1.65);
+  animation-duration: 2.8s;
+}
+
+.galaxy-input-shell:focus-within .galaxy-input-glow,
+.galaxy-input-shell:hover .galaxy-input-glow {
+  opacity: .18;
+}
+
+.galaxy-input-shell > input.galaxy-input {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 56px;
+  min-width: 0;
+  padding: 0 18px 0 58px !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  outline: none;
+  color: #a9c7ff !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 16px;
+}
+
+.galaxy-input-shell > input.galaxy-input::placeholder {
+  color: #6e8cff !important;
+}
+
+/* Element Plus inputs share the same ring while retaining their existing v-model and icons. */
+.galaxy-input.el-input,
+.galaxy-input.el-input-number,
+.galaxy-input.el-select {
+  position: relative;
+  isolation: isolate;
+  min-height: 58px;
+  border-radius: 12px;
+}
+
+.galaxy-input.el-input::before,
+.galaxy-input.el-input::after,
+.galaxy-input.el-input-number::before,
+.galaxy-input.el-input-number::after,
+.galaxy-input.el-select::before,
+.galaxy-input.el-select::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.galaxy-input.el-input::before,
+.galaxy-input.el-input-number::before,
+.galaxy-input.el-select::before {
+  inset: -2px;
+  z-index: -2;
+  background: conic-gradient(from 20deg, transparent 0 18%, #4d6dff 27%, transparent 37% 57%, #6e8cff 68%, transparent 78% 100%);
+  filter: blur(1px) brightness(1.28);
+  animation: galaxy-input-spin 5s linear infinite;
+}
+
+.galaxy-input.el-input::after,
+.galaxy-input.el-input-number::after,
+.galaxy-input.el-select::after {
+  inset: 1px;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(8, 13, 48, .96), #05071b 72%);
+  box-shadow: inset 0 0 24px rgba(77, 109, 255, .13), 0 10px 28px rgba(0, 0, 0, .24);
+}
+
+.galaxy-input.el-input:focus-within::before,
+.galaxy-input.el-input-number:focus-within::before,
+.galaxy-input.el-select:focus-within::before {
+  filter: blur(.2px) brightness(1.65);
+  animation-duration: 2.8s;
+}
+
+.galaxy-input .el-input__wrapper,
+.galaxy-input .el-select__wrapper,
+.galaxy-input .el-input-number__decrease,
+.galaxy-input .el-input-number__increase {
+  position: relative;
+  z-index: 1;
+  color: #a9c7ff !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.galaxy-input .el-input__wrapper,
+.galaxy-input .el-select__wrapper {
+  min-height: 56px;
+  padding-inline: 18px !important;
+}
+
+.galaxy-input .el-input__inner,
+.galaxy-input input,
+.galaxy-input textarea,
+.galaxy-input .el-select__selected-item,
+.galaxy-input .el-input__count {
+  color: #a9c7ff !important;
+}
+
+.galaxy-input input::placeholder,
+.galaxy-input textarea::placeholder {
+  color: #6e8cff !important;
+}
+
+.galaxy-input textarea {
+  min-height: 94px;
+  padding-block: 15px !important;
+  resize: vertical;
+}
+
+.galaxy-input .el-input-number__decrease,
+.galaxy-input .el-input-number__increase {
+  color: #6e8cff !important;
+}
+
+.galaxy-input.el-input-number .el-input__wrapper {
+  padding-right: 58px !important;
+}
+
+@keyframes galaxy-input-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galaxy-input-shell::before,
+  .galaxy-input.el-input::before,
+  .galaxy-input.el-input-number::before,
+  .galaxy-input.el-select::before { animation: none; }
+}

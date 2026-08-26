@@ -1,0 +1,82 @@
+server:
+  port: 8091
+  shutdown: graceful
+
+spring:
+  profiles:
+    default: local
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+  jpa:
+    open-in-view: false
+
+logging:
+  level:
+    com.example.library: INFO
+    org.springframework.security: INFO
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION:86400000}
+
+app:
+  demo-data:
+    enabled: ${APP_DEMO_DATA_ENABLED:false}
+    users-file: ${APP_DEMO_USERS_FILE:}
+  bootstrap-admin:
+    enabled: ${APP_BOOTSTRAP_ADMIN_ENABLED:false}
+    user: ${APP_BOOTSTRAP_ADMIN_USER:}
+    password: ${APP_BOOTSTRAP_ADMIN_PASSWORD:}
+    name: ${APP_BOOTSTRAP_ADMIN_NAME:Library Administrator}
+  cors:
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:http://localhost:8082}
+  borrowing:
+    max-books: 5
+    max-days: 30
+    max-renewals: 1
+  reservation:
+    pickup-hours: 48
+  notification:
+    due-soon-days: 3
+    scan-delay-ms: 900000
+  agent-action:
+    expiration-minutes: 5
+
+deepseek:
+  api-key: ${DEEPSEEK_API_KEY:}
+  base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+  model: ${DEEPSEEK_MODEL:deepseek-v4-flash}
+  timeout: ${DEEPSEEK_TIMEOUT:120000}
+
+agent:
+  max-iterations: ${AGENT_MAX_ITERATIONS:6}
+  history-limit: ${AGENT_HISTORY_LIMIT:8}
+
+management:
+  observations:
+    annotations:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when_authorized
+  info:
+    env:
+      enabled: false
+
+info:
+  app:
+    name: library-management
+    version: 1.0.0
+    description: Intelligent library circulation and Agent platform
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
